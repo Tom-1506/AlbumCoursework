@@ -2,27 +2,32 @@ import java.text.DecimalFormat;
 
 public class Duration
 {
+    //Instance variables for hours, minutes and seconds
     private int hours;
     private int minutes;
     private int seconds;
 
+    //Create format for displaying the duration correctly
     private DecimalFormat display = new DecimalFormat("00");
 
-    private Duration()
+    //No input constructor
+    public Duration()
     {
         hours = 0;
         minutes = 0;
         seconds = 0;
     }
 
-    private Duration(int inHours, int inMinutes, int inSeconds)
+    //Constructor that takes integers
+    public Duration(int inHours, int inMinutes, int inSeconds)
     {
         hours = inHours;
         minutes = inMinutes;
         seconds = inSeconds;
     }
 
-    private Duration(String time)
+    //Constructor that takes a string
+    public Duration(String time)
     {
         String timeArray[] = time.split(":");
         hours = Integer.parseInt(timeArray[0]);
@@ -30,6 +35,7 @@ public class Duration
         seconds = Integer.parseInt(timeArray[2]);
     }
 
+    //Adds durations
     public String add (Duration d2)
     {
         hours = hours + d2.hours;
@@ -39,6 +45,7 @@ public class Duration
         return addFormat();
     }
 
+    //Formats the added duration so that counters dont go over 59 seconds or minutes
     private String addFormat()
     {
         seconds = seconds + (minutes * 60) + (hours * 60 * 60);

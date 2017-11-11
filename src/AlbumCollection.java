@@ -1,4 +1,14 @@
 public class AlbumCollection
 {
-    //albumCollection class
+    private Album albumArray[] = new Album[] {};
+
+    public AlbumCollection()
+    {
+
+    }
+
+    public AlbumCollection(Album inAlbumArray[])
+    {
+
+    }
 }
