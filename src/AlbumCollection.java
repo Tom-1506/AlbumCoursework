@@ -1,14 +1,16 @@
+import java.util.ArrayList;
+
 public class AlbumCollection
 {
-    private Album albumArray[] = new Album[] {};
+    public ArrayList<Album> albumArray = new ArrayList<>();
 
     public AlbumCollection()
     {
 
     }
 
-    public AlbumCollection(Album inAlbumArray[])
+    public void printArray(AlbumCollection albums)
     {
-
+        //System.out.println((albums.albumArray.get(0).trackArray));
     }
 }

@@ -1,17 +1,22 @@
 public class Track
 {
-    private String trackName = new String();
+    private String trackName;
     private Duration trackDuration = new Duration();
 
     public Track()
     {
         trackName = ("");
-        Duration trackDuration = new Duration("00:00:00");
+        trackDuration = new Duration("00:00:00");
     }
 
-    public Track(String inTrackName, String time)
+    public Track(String inTime, String inTrackName)
     {
         trackName = inTrackName;
-        Duration trackDuration = new Duration(time);
+        trackDuration = new Duration(inTime);
+    }
+
+    public String toString()
+    {
+        return (trackDuration + " - " + trackName);
     }
 }

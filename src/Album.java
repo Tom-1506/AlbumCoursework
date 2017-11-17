@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Album
 {
-    private String artist = new String();
-    private String albumName = new String();
-    private Track trackArray[] = new Track[] {};
+    private String artist;
+    private String albumName;
+    public ArrayList<Track> trackArray = new ArrayList<>();
 
     public Album()
     {
@@ -14,5 +16,10 @@ public class Album
     {
         artist = inArtist;
         albumName = inAlbumName;
+    }
+
+    public String toString()
+    {
+        return (artist + " : " + albumName);
     }
 }
