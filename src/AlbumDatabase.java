@@ -55,5 +55,6 @@ public class AlbumDatabase
     {
         DBRead();
         //newAlbumCollection.printArray(newAlbumCollection);
+        System.out.println(newAlbumCollection.totalOfTracks("Pink Floyd"));
     }
 }

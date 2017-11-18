@@ -45,7 +45,7 @@ public class Duration
         return addFormat();
     }
 
-    //Formats the added duration so that counters dont go over 59 seconds or minutes
+    //Formats the added duration so that counters don't go over 59 seconds or minutes
     private String addFormat()
     {
         seconds = seconds + (minutes * 60) + (hours * 60 * 60);

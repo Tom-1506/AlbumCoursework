@@ -22,4 +22,14 @@ public class Album
     {
         return (artist + " : " + albumName);
     }
+
+    public String getArtist()
+    {
+        return this.artist;
+    }
+
+    public String getAlbumName()
+    {
+        return this.albumName;
+    }
 }

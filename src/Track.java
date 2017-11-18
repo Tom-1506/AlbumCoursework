@@ -19,4 +19,9 @@ public class Track
     {
         return (trackDuration + " - " + trackName);
     }
+
+    public Duration getTrackDuration()
+    {
+        return trackDuration;
+    }
 }
