@@ -49,7 +49,7 @@ public class AlbumCollection
         {
             checkAlbum = albumArray.get(i);
 
-            if (checkAlbum.getArtist() == artistName)
+            if (checkAlbum.getArtist().equals(artistName))
             {
                 for (int j = 0; j < checkAlbum.trackArray.size(); j++)
                 {
@@ -58,5 +58,30 @@ public class AlbumCollection
             }
         }
         return totalTrackDuration.toString();
+    }
+
+    public String mostTracks()
+    {
+        String most = albumArray.get(0).toString();
+        int count = albumArray.get(0).getNumberOfTracks();
+
+        for (int i = 1 ; i < albumArray.size(); i++)
+        {
+            if (albumArray.get(i).getNumberOfTracks() > count)
+            {
+                most = albumArray.get(i).toString();
+                count = albumArray.get(i).getNumberOfTracks();
+            }
+        }
+        return most;
+    }
+
+    public void numberOfTracks()
+    {
+        for (int i = 0 ; i < albumArray.size(); i++)
+        {
+            System.out.println(albumArray.get(i).toString());
+            System.out.println(albumArray.get(i).getNumberOfTracks());
+        }
     }
 }

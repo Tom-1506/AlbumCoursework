@@ -17,7 +17,7 @@ public class AlbumDatabase
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            while((line = bufferedReader.readLine()) != null)
+            while ((line = bufferedReader.readLine()) != null)
             {
                 if (Character.isLetter(line.charAt(0)))
                 {
@@ -41,11 +41,11 @@ public class AlbumDatabase
 
             bufferedReader.close();
         }
-        catch(FileNotFoundException ex)
+        catch (FileNotFoundException ex)
         {
             System.out.println("Unable to open file '" + fileName + "'");
         }
-        catch(IOException ex)
+        catch (IOException ex)
         {
             System.out.println("Error reading file '" + fileName + "'");
         }
@@ -55,6 +55,8 @@ public class AlbumDatabase
     {
         DBRead();
         //newAlbumCollection.printArray(newAlbumCollection);
-        System.out.println(newAlbumCollection.totalOfTracks("Pink Floyd"));
+        //System.out.println(newAlbumCollection.totalOfTracks("Pink Floyd"));
+        newAlbumCollection.numberOfTracks();
+        System.out.println(newAlbumCollection.mostTracks());
     }
 }

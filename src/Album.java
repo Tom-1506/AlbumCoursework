@@ -32,4 +32,16 @@ public class Album
     {
         return this.albumName;
     }
+
+    public int getNumberOfTracks()
+    {
+        int count = 0;
+
+        for (Track track : trackArray)
+        {
+            count += 1;
+        }
+
+        return count;
+    }
 }
