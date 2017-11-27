@@ -67,21 +67,26 @@ public class Duration
         return this.toString();
     }
 
+
+    //toString override for use in other methods
     public String toString()
     {
         return(display.format(hours) + ":" + display.format(minutes) + ":" + display.format(seconds));
     }
 
+    //Return method for returning the hours in a duration object
     public int getHours()
     {
         return hours;
     }
 
+    //Return method for returning the minutes in a duration object
     public int getMinutes()
     {
         return minutes;
     }
 
+    //Return method for returning the seconds in a duration object
     public int getSeconds()
     {
         return seconds;

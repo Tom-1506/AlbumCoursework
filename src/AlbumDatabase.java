@@ -2,15 +2,18 @@ import java.io.*;
 
 public class AlbumDatabase
 {
+    //Instance variables for a new album collection and a new album
     private static AlbumCollection newAlbumCollection = new AlbumCollection();
     private static Album newAlbum = new Album();
 
+    //Method used for reading in the album collection from a text file
     private static void DBRead()
     {
         String fileName = "albumCollection.txt";
 
         String line;
 
+        //Try catch for catching exceptions
         try
         {
             FileReader fileReader = new FileReader(fileName);
@@ -19,6 +22,7 @@ public class AlbumDatabase
 
             while ((line = bufferedReader.readLine()) != null)
             {
+                //Check if the first character in the line is a letter
                 if (Character.isLetter(line.charAt(0)))
                 {
                     String[] inAlbum = line.split(" : ");
@@ -28,6 +32,7 @@ public class AlbumDatabase
                     newAlbum = new Album(inArtist, inAlbumName);
                     newAlbumCollection.albumArray.add(newAlbum);
                 }
+                //Check if the first character in the line is a number
                 else if (Character.isDigit(line.charAt(0)))
                 {
                     String[] inTrack = line.split(" - ");
@@ -51,12 +56,17 @@ public class AlbumDatabase
         }
     }
 
+    //Main method carries out all required operations
     public static void main(String[] args)
     {
         DBRead();
-        //newAlbumCollection.printArray(newAlbumCollection);
-        //System.out.println(newAlbumCollection.totalOfTracks("Pink Floyd"));
-        newAlbumCollection.numberOfTracks();
+        System.out.println("Sorted Album Collection:");
+        newAlbumCollection.printArray(newAlbumCollection);
+        System.out.println("\nTotal of Pink Floyd Tracks:");
+        System.out.println(newAlbumCollection.totalOfTracks("Pink Floyd"));
+        System.out.println("\nAlbum With Most Tracks:");
         System.out.println(newAlbumCollection.mostTracks());
+        System.out.println("\nDetails of Longest Track:");
+        newAlbumCollection.longestTrack();
     }
 }

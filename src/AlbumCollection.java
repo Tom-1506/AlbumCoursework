@@ -4,13 +4,13 @@ import java.util.Comparator;
 
 public class AlbumCollection
 {
+    //Instance variable for the list of albums
     public ArrayList<Album> albumArray = new ArrayList<>();
 
-    public AlbumCollection()
-    {
+    //No input constructor
+    public AlbumCollection(){}
 
-    }
-
+    //Method that prints the album collection
     public void printArray(AlbumCollection albums)
     {
         sortAlbumCollection();
@@ -20,6 +20,7 @@ public class AlbumCollection
         }
     }
 
+    //Method used for sorting albums
     private void sortAlbumCollection()
     {
         Collections.sort(albumArray, new Comparator<Album>()
@@ -40,6 +41,7 @@ public class AlbumCollection
         });
     }
 
+    //Method used for outputting total duration of all tracks in the album collection
     public String totalOfTracks(String artistName)
     {
         Duration totalTrackDuration = new Duration();
@@ -60,6 +62,7 @@ public class AlbumCollection
         return totalTrackDuration.toString();
     }
 
+    //Method used for outputting the album with the most tracks
     public String mostTracks()
     {
         String most = albumArray.get(0).toString();
@@ -76,12 +79,50 @@ public class AlbumCollection
         return most;
     }
 
+    //Method used for showing the number of tracks in an album (used for checking mostTracks())
     public void numberOfTracks()
     {
         for (int i = 0 ; i < albumArray.size(); i++)
         {
             System.out.println(albumArray.get(i).toString());
             System.out.println(albumArray.get(i).getNumberOfTracks());
+        }
+    }
+
+    //Method used for outputting the longest track in the album collection
+    public void longestTrack()
+    {
+        Track longest = new Track();
+
+        for (int i = 1 ; i < albumArray.size(); i++)
+        {
+            for (int j = 1; j < albumArray.get(i).trackArray.size(); j++)
+            {
+                if (compareTrackLarger(longest, albumArray.get(i).trackArray.get(j)))
+                {
+                    longest = albumArray.get(i).trackArray.get(j);
+                }
+            }
+        }
+        System.out.println(longest);
+    }
+
+    //Method used for checking if the duration of track b is larger than track a
+    private Boolean compareTrackLarger(Track a, Track b)
+    {
+        Duration aDuration = a.getTrackDuration();
+        Duration bDuration = b.getTrackDuration();
+
+        int aTotalSeconds = aDuration.getSeconds() + (aDuration.getMinutes() * 60) + (aDuration.getHours() * 60 * 60);
+        int bTotalSeconds = bDuration.getSeconds() + (bDuration.getMinutes() * 60) + (bDuration.getHours() * 60 * 60);
+
+        if (bTotalSeconds > aTotalSeconds)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
